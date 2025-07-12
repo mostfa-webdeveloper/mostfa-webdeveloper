@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Générateur de CV Multi-Step</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="theme-language-toggle">
+    <button id="toggle-theme">🌓</button>
+    <button id="toggle-language">🌐</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title">Créer votre CV</h1>
+    <form id="cv-form">
+      <!-- Page 1 -->
+      <div class="page" id="page-1">
+        <h2 id="section-personal">Informations Personnelles</h2>
+        <input type="text" id="full-name" placeholder="Nom complet" required />
+        <input type="date" id="birth-date" placeholder="Date de naissance" />
+        <input type="text" id="address" placeholder="Adresse (Ville, Région)" />
+        <input type="tel" id="phone" placeholder="Téléphone" />
+        <input type="email" id="email" placeholder="Email" required />
+
+        <h2 id="section-title">Titre du CV</h2>
+        <input type="text" id="cv-title" placeholder="Exemple: Étudiant en Informatique" />
+
+        <h2 id="section-objective">Objectif Professionnel</h2>
+        <textarea id="objective" placeholder="Votre objectif professionnel"></textarea>
+
+        <h2 id="section-education">Formation / Éducation</h2>
+        <input type="text" id="education-degree" placeholder="Diplôme (Licence, Bac, Mastère...)" />
+        <input type="text" id="education-institution" placeholder="Établissement" />
+        <input type="text" id="education-date" placeholder="Date (de - à)" />
+        <input type="text" id="education-grade" placeholder="Notes / Moyenne (optionnel)" />
+        <input type="text" id="education-project" placeholder="Projet de fin d'études (optionnel)" />
+
+        <button type="button" id="next-btn">Suivant ➡️</button>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page" id="page-2" style="display:none;">
+        <h2 id="section-experience">Expérience Professionnelle</h2>
+        <div id="experience-list"></div>
+        <button type="button" id="add-experience-btn">+ Ajouter une expérience</button>
+
+        <h2 id="section-skills-tech">Compétences Techniques</h2>
+        <textarea id="skills-tech" placeholder="Langages, logiciels, outils..."></textarea>
+
+        <h2 id="section-skills-soft">Compétences Personnelles</h2>
+        <textarea id="skills-soft" placeholder="Travail en équipe, communication..."></textarea>
+
+        <h2 id="section-languages">Langues</h2>
+        <select id="language-level" multiple size="4" style="margin-bottom: 18px;">
+          <option value="ar">Arabe – Langue maternelle</option>
+          <option value="fr">Français – Bon niveau (écrit / oral)</option>
+          <option value="en">Anglais – Intermédiaire / avancé</option>
+        </select>
+
+        <h2 id="section-certifications">Certifications</h2>
+        <textarea id="certifications" placeholder="Nom, plateforme, date, lien"></textarea>
+
+        <h2 id="section-projects">Projets</h2>
+        <textarea id="projects" placeholder="Nom, rôle, technologies, lien"></textarea>
+
+        <h2 id="section-interests">Centres d’intérêt</h2>
+        <textarea id="interests" placeholder="Loisirs, hobbies..."></textarea>
+
+        <h2 id="section-references">Références</h2>
+        <textarea id="references" placeholder="Nom, fonction, contact"></textarea>
+
+        <h2 id="section-links">Liens Professionnels</h2>
+        <input type="url" id="linkedin" placeholder="LinkedIn (optionnel)" />
+        <input type="url" id="github" placeholder="GitHub / Portfolio (optionnel)" />
+
+        <div class="buttons">
+          <button type="button" id="prev-btn">⬅️ Précédent</button>
+          <button type="submit" id="generate-btn">Générer CV</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
